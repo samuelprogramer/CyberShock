@@ -2,20 +2,12 @@
 package cybershockserver;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 
 /**
  * @author Samuel Lisboa
@@ -25,6 +17,11 @@ import java.util.Date;
  *
  */
 public class CyberShockServer {
+    
+    static int zero = 0;
+    static int um = 0;
+    
+    
     public static void main(String[] args) {
         try{
             ServerSocket server = null;
@@ -41,12 +38,40 @@ public class CyberShockServer {
                                 new InputStreamReader(conexao.getInputStream(),StandardCharsets.UTF_8));
                         PrintWriter out = new PrintWriter(
                                 new OutputStreamWriter(conexao.getOutputStream(), StandardCharsets.UTF_8), true);
+                        
                         String entradaDados = inFromCliente.readLine();
                         System.out.println(entradaDados);
                         String DADOS[] = entradaDados.split("<shock>");
                         
-                        out.println("#resultadook");
+                        if(DADOS[1].equals("0")){
+                            if(DADOS[0].equals("get")){
+                                out.println(um);
+                            }else if(DADOS[0].equals("set")){
+                                try{
+                                    zero = Integer.parseInt(DADOS[1]);
+                                    out.println("#valorSetOK");
+                                }catch(Exception e){
+                                    out.println("#invalidValor");
+                                }
+                               
+                            }
+                        }else if(DADOS[1].equals("1")){
+                            if(DADOS[0].equals("get")){
+                                out.println(zero);
+                            }else if(DADOS[0].equals("set")){
+                                 try{
+                                    um = Integer.parseInt(DADOS[1]);
+                                    out.println("#valorSetOK");
+                                }catch(Exception e){
+                                    out.println("#invalidValor");
+                                }
+                            }
+                        }else{
+                            out.println("#comandoinvalid");
+                        }
                         
+                        
+                                                
                         
                     }catch(Exception e){
                         
@@ -63,5 +88,9 @@ public class CyberShockServer {
             
         }
     }
+    
+    
+    
+    
     
 }

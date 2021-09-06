@@ -27,8 +27,8 @@ public class SocketShockApi {
      * 
      * @throws IOException 
      */
-    String send(String ComandoServer, String ID_userAtac) throws IOException{
-        String comand = ComandoServer+"<shock>"+ID_userAtac;
+    String send(String ComandoServer, String ID_userAtac, int numero) throws IOException{
+        String comand = ComandoServer+"<shock>"+ID_userAtac+"<shock>"+numero;
         Socket client = new Socket("starts.sytes.net",4600);
         PrintWriter out = new PrintWriter(client.getOutputStream(), true);
         BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream(),"UTF-8"));
