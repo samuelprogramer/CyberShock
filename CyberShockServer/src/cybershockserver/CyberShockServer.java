@@ -44,7 +44,7 @@ public class CyberShockServer {
                         String DADOS[] = entradaDados.split("<shock>");
                         
                         // bruno
-                        if(DADOS[1].equals("0")){
+                        if(DADOS[1].equals("bruno")){
                             if(DADOS[0].equals("get")){
                                 try{
                                     if(zero!=0){
@@ -71,7 +71,7 @@ public class CyberShockServer {
                                
                             }
                             //samuel
-                        }else if(DADOS[1].equals("1")){
+                        }else if(DADOS[1].equals("samuel")){
                             if(DADOS[0].equals("get")){
                                 try{
                                     if(um!=0){
