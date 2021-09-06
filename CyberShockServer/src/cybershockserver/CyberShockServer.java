@@ -28,10 +28,11 @@ public class CyberShockServer {
     public static void main(String[] args) {
         try{
             ServerSocket server = null;
-            server = new ServerSocket(10524);
+            server = new ServerSocket(4600);
+            System.out.println("Server Iniciado");
             while (true) {
-                 Socket conexao = server.accept();
-                  new Thread(){
+                Socket conexao = server.accept();
+                new Thread(){
                 @Override
                 public void run() {
                     super.run(); 
