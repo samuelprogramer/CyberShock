@@ -21,6 +21,10 @@ public class CyberShockServer {
     static int zero = 0;
     static int um = 0;
     
+    static int HPsamuel = 0;
+    static int HPBruno = 0;
+    
+    
     
     public static void main(String[] args) {
         try{
@@ -69,6 +73,14 @@ public class CyberShockServer {
                                     out.println("#invalidValor");
                                 }
                                
+                            }else if(DADOS[0].equals("getHP")){
+                                out.println(HPBruno);
+                            }else if(DADOS[0].equals("setHP")){
+                                try{
+                                    HPBruno = Integer.parseInt(DADOS[2]);
+                                }catch(Exception e){
+                                    out.println("#invalidNumHP");
+                                }
                             }
                             //samuel
                         }else if(DADOS[1].equals("samuel")){
@@ -94,6 +106,14 @@ public class CyberShockServer {
                                     out.println("#valorSetOK["+um+"]");
                                 }catch(Exception e){
                                     out.println("#invalidValor");
+                                }
+                            }else if(DADOS[0].equals("getHP")){
+                                out.println(HPsamuel);
+                            }else if(DADOS[0].equals("setHP")){
+                                try{
+                                    HPsamuel = Integer.parseInt(DADOS[2]);
+                                }catch(Exception e){
+                                    out.println("#invalidNumHP");
                                 }
                             }
                         }else{

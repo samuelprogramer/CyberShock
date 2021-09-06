@@ -38,4 +38,13 @@ public class SocketShockApi {
         input.close();
         return Result;
     }
+    
+    String GetHPOponente(String Oponente) throws IOException{
+        return send("getHP",Oponente,0);
+    }
+    String SetHPOponente(String MeuId, int meuHP) throws IOException{
+        return send("setHP",MeuId,meuHP);
+    }
+    
+    
 }
