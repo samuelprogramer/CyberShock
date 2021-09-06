@@ -47,7 +47,7 @@ public class CyberShockServer {
                         if(DADOS[1].equals("0")){
                             if(DADOS[0].equals("get")){
                                 try{
-                                    if(zero==0){
+                                    if(zero!=0){
                                         int reciveInt = Integer.parseInt(DADOS[2]);
                                         if(reciveInt==zero){
                                             out.println("#ok");
@@ -56,7 +56,7 @@ public class CyberShockServer {
                                             out.println("#errou");
                                         }
                                     }else{
-                                        out.println("#offline");
+                                        out.println("#offline ["+zero+"]");
                                     }
                                 }catch(Exception e){
                                     out.println("#exception");
@@ -74,7 +74,7 @@ public class CyberShockServer {
                         }else if(DADOS[1].equals("1")){
                             if(DADOS[0].equals("get")){
                                 try{
-                                    if(um==0){
+                                    if(um!=0){
                                         int reciveInt = Integer.parseInt(DADOS[2]);
                                         if(reciveInt==um){
                                             out.println("#ok");
@@ -83,7 +83,7 @@ public class CyberShockServer {
                                             out.println("#errou");
                                         }
                                     }else{
-                                        out.println("#offline");
+                                       out.println("#offline ["+um+"]");
                                     }
                                 }catch(Exception e){
                                     out.println("#exception");
