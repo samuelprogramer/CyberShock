@@ -75,9 +75,11 @@ public class CyberShockServer {
                                
                             }else if(DADOS[0].equals("getHP")){
                                 out.println(HPBruno);
+                                out.println("#valorHpSetOK["+HPBruno+"]");
                             }else if(DADOS[0].equals("setHP")){
                                 try{
                                     HPBruno = Integer.parseInt(DADOS[2]);
+                                    out.println("#valorHpSetOK["+HPBruno+"]");
                                 }catch(Exception e){
                                     out.println("#invalidNumHP");
                                 }
@@ -112,6 +114,7 @@ public class CyberShockServer {
                             }else if(DADOS[0].equals("setHP")){
                                 try{
                                     HPsamuel = Integer.parseInt(DADOS[2]);
+                                    out.println("#valorHpSetOK["+HPsamuel+"]");
                                 }catch(Exception e){
                                     out.println("#invalidNumHP");
                                 }
